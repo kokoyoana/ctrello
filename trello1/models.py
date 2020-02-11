@@ -11,4 +11,5 @@ class Tarea(models.Model):
     nombreTare = models.CharField(max_length=50)
     descripcion = models.CharField(max_length=200)
     fkLista = models.ForeignKey(Lista,on_delete=models.CASCADE)
+    #test
 
