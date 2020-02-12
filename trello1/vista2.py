@@ -8,7 +8,7 @@ def ver(request):
    return HttpResponse("Vamos a ver")
 
 def ejemHtml(request):
-    documento = open("C:/Users/formacion/Documents/GitHub/ctrello/trello1/template/trello1/testvista.html")
+    documento = open("C:/Users/formacion/Documents/GitHub/ctrello/trello1/template/testvista.html")
     nombre = "Prueba"
     edad = " 100"
     plantilla = Template(documento.read())
