@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from trello1.vista1 import tres
-from trello1.vista2 import ver, ejemHtml
+from trello1.vista2 import ejemHtml
 
 urlpatterns = [
     path('admin/', admin.site.urls),
