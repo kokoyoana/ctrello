@@ -4,13 +4,13 @@ from django.shortcuts import render
 import datetime
 
 
-def HolaMundos(request):
-   return HttpResponse("Hola Mundos")
+def ver(request):
+   return HttpResponse("Vamos a ver")
 
 def ejemHtml(request):
-    documento = open("C:/Users/formacion/Documents/2020/proyectosdjango/proyecto1/proyecto1/plantillas/index.html")
-    nombre = "Ernesto"
-    edad = " 32"
+    documento = open("C:/Users/formacion/Documents/GitHub/ctrello/trello1/template/trello1/testvista.html")
+    nombre = "Prueba"
+    edad = " 100"
     plantilla = Template(documento.read())
     documento.close()
     contexto1 = Context({"nomb":nombre,"edad":edad})

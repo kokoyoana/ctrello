@@ -1,0 +1,21 @@
+{%block content%}
+
+<form method="post">{% csrf_token %}
+    {{formTablero.as_p}}
+
+    <input type="submit" value="Enviar">
+</form>
+
+<!--<form method="post">{% csrf_token %}
+    {{fomulario.as_p}}
+
+    <input type="submit" value="Enviar">
+</form>
+
+<form method="post">{% csrf_token %}
+    {{fomulario.as_p}}
+
+    <input type="submit" value="Enviar">
+</form>-->
+
+{% endblock %}
