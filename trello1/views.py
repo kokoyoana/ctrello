@@ -24,14 +24,14 @@ def index(request):
         formTablero.save()
     return render(request,principal, {'formTablero':formTablero})
 
-def fl(request):
+def formlista(request):
     principal = "trello1/fl.html"
     formLista = ListaForm(request.POST or None)
     if formLista.is_valid():
         formLista.save()
     return render(request,principal, {'formLista':formLista})
 
-def ft(request):
+def formtarea(request):
     principal = "trello1/ft.html"
     formTarea = TareaForm(request.POST or None)
     if formTarea.is_valid():
