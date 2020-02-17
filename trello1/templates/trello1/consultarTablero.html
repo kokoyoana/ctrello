@@ -1,0 +1,20 @@
+{% extends "trello1/index.html" %}
+
+
+        
+
+
+{% block content %}
+{% for Tablero in object_list %}
+
+    <table class="table tablatablero">
+        <tbody>
+        <tr>
+            <td>{{Tablero.nombre}}</td>
+            
+        </tr>
+    </tbody>
+    </table>
+{% endfor %}
+
+{% endblock content %}

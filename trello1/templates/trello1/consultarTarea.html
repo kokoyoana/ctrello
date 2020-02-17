@@ -1,0 +1,17 @@
+{% extends "trello1/index.html" %}
+{% block content %}
+<table>
+{% for tarea in object_list %}
+
+    <table>
+        <tr>
+            <td>{{tarea.nombreTare}}</td>
+            <td>{{tarea.description}}</td>
+            <td>{{fkLista}}</td>
+            
+        </tr>
+
+    </table>
+{% endfor %}
+
+{% endblock content %}

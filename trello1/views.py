@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.forms import ModelForm
 from trello1.models import Tablero,Lista,Tarea
 
@@ -37,3 +37,25 @@ def formtarea(request):
     if formTarea.is_valid():
         formTarea.save()
     return render(request,principal, {'formTarea':formTarea})
+
+def consultarTarea(request):
+    template='trello1/consultarTarea.html'
+    listatarea=Tarea.objects.all()
+    contexto={}
+    contexto['object_list']=listatarea
+    return render (request,template,contexto)
+
+
+def consultarTablero(request):
+    template='trello1/consultarTablero.html'
+    listatablero=Tablero.objects.all()
+    contexto={}
+    contexto['object_list']=listatablero
+    return render (request,template,contexto)
+
+def consultarLista(request):
+    template='trello1/consultarLista.html'
+    listas=Lista.objects.all()
+    contexto={}
+    contexto['object_list']=listas
+    return render (request,template,contexto)
