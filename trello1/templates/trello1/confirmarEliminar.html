@@ -1,0 +1,12 @@
+{% extends "trello1/index.html" %}
+
+{% block content %}
+
+<form method="POST">{% csrf_token %}
+    Estas seguro que desea eliminar {{cli.nombre}}
+
+    <input type="submit" value="Eliminar">
+</form>
+
+
+{% endblock content %}

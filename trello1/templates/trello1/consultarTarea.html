@@ -1,18 +1,26 @@
 {% extends "trello1/index.html" %}
 {% load bootstrap4 %}
 {% block content %}
-<table>
-{% for tarea in object_list %}
 
-    <table>
+    <table class="table">
+        <tbody>  
+        {% for tarea in object_list %}
         <tr>
             <td>{{tarea.nombreTare}}</td>
             <td>{{tarea.description}}</td>
             <td>{{fkLista}}</td>
-            
+            <td><a href="{% url 'update_tarea' tarea.id %}">
+                EDITAR TAREA
+            </a>
+            </td>
+            <td><a href="{% url 'eliminar_tarea' tarea.id %}">
+                    ELIMINAR TAREA
+                </a>
+            </td>
         </tr>
-
+        {% endfor %}
+        </tbody>
     </table>
-{% endfor %}
+
 
 {% endblock content %}
