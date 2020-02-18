@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Tablero(models.Model):
-    nombre = models.CharField(max_length=50)
+    nombre = models.CharField(max_length=50, verbose_name="Tablero")
 
 class Lista(models.Model):
     nombreLista = models.CharField(max_length=50)
