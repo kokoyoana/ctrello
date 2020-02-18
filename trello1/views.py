@@ -48,23 +48,67 @@ def consultarTarea(request):
 
 def consultarTablero(request):
     template='trello1/consultarTablero.html'
-    listatablero=Tablero.objects.all()
+    listatablero= Tablero.objects.all()
     contexto={}
     contexto['object_list']=listatablero
     return render (request,template,contexto)
 
 def consultarLista(request):
     template='trello1/consultarLista.html'
-    listas=Lista.objects.all()
+    listas= Lista.objects.all()
     contexto={}
     contexto['object_list']=listas
     return render (request,template,contexto)
 
-''''def update_tablero(request,id):
-    template= 'trello1/edit.html'
+def update_tablero(request,id):
+    template= 'trello1/index.html'
     info_tablero=get_object_or_404(Tablero,pk=id)
     form = TableroForm(request.POST or None,instance=info_tablero)
     if form.is_valid():
         form.save()
-        return redirect('trello1/consultarTablero.html')
-        return render (request,template,{'form':form})'''
+        return redirect('consultarTablero.html')
+    return render (request,template,{'form':form})
+
+def update_tarea(request,id):
+    template= 'trello1/consultarTarea.html'
+    info_tarea=get_object_or_404(Tarea,pk=id)
+    form = TareaForm(request.POST or None,instance=info_tarea)
+    if form.is_valid():
+        form.save()
+        return redirect('consultarTarea.html')
+    return render (request,template,{'form':form})
+    
+    
+def update_lista(request,id):
+    template= 'trello1/consultarLista.html'
+    info_lista=get_object_or_404(Lista,pk=id)
+    form = ListaForm(request.POST or None,instance=info_lista)
+    if form.is_valid():
+        form.save()
+        return redirect('consultarLista.html')
+    return render (request,template,{'form':form})
+
+
+def eliminar_tablero(request,id):
+    template= 'trello1/confirmarEliminar.html'
+    idTablero=get_object_or_404(Tablero,pk=id)
+    if request.method == 'POST':
+        idTablero.delete()
+        return redirect('consultarTablero')
+    return render (request,template,{'cli':idTablero})
+
+def eliminar_tarea(request,id):
+    template= 'trello1/confirmarEliminar.html'
+    idTarea=get_object_or_404(Tarea,pk=id)
+    if request.method == 'POST':
+        idTarea.delete()
+        return redirect('consultarTarea.html')
+    return render (request,template,{'cli':idTarea})
+
+def eliminar_lista(request,id):
+    template= 'trello1/confirmarEliminar.html'
+    idLista=get_object_or_404(Lista,pk=id)
+    if request.method == 'POST':
+        idLista.delete()
+        return redirect('consultarLista.html')
+    return render (request,template,{'cli':idLista})
