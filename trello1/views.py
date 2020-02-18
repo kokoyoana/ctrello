@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from django.forms import ModelForm
 from trello1.models import Tablero,Lista,Tarea
 
@@ -59,3 +59,12 @@ def consultarLista(request):
     contexto={}
     contexto['object_list']=listas
     return render (request,template,contexto)
+
+''''def update_tablero(request,id):
+    template= 'trello1/edit.html'
+    info_tablero=get_object_or_404(Tablero,pk=id)
+    form = TableroForm(request.POST or None,instance=info_tablero)
+    if form.is_valid():
+        form.save()
+        return redirect('trello1/consultarTablero.html')
+        return render (request,template,{'form':form})'''
