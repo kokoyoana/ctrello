@@ -69,26 +69,26 @@ def update_tablero(request,id):
     form = TableroForm(request.POST or None,instance=info_tablero)
     if form.is_valid():
         form.save()
-        return redirect('consultarTablero.html')
+        return redirect('consultarTablero')
     return render (request,template,{'form':form})
 
 def update_tarea(request,id):
-    template= 'trello1/consultarTarea.html'
+    template= 'trello1/editarTarea.html'
     info_tarea=get_object_or_404(Tarea,pk=id)
     form = TareaForm(request.POST or None,instance=info_tarea)
     if form.is_valid():
         form.save()
-        return redirect('consultarTarea.html')
+        return redirect('consultarTarea')
     return render (request,template,{'form':form})
     
     
 def update_lista(request,id):
-    template= 'trello1/consultarLista.html'
+    template= 'trello1/editarLista.html'
     info_lista=get_object_or_404(Lista,pk=id)
     form = ListaForm(request.POST or None,instance=info_lista)
     if form.is_valid():
         form.save()
-        return redirect('consultarLista.html')
+        return redirect('consultarLista')
     return render (request,template,{'form':form})
 
 

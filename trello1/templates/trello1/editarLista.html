@@ -1,0 +1,13 @@
+{% extends "trello1/index.html" %}
+{% load bootstrap4 %}
+{% block content %}
+
+<form method="POST">{% csrf_token %}
+    {% bootstrap_form form %}
+    
+
+    <input type="submit" class="btn btn-primary"value="enviar">
+
+</form>
+
+{% endblock content %}
