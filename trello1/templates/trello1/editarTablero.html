@@ -1,0 +1,22 @@
+{% extends "trello1/index.html" %}
+{% load bootstrap4 %}
+{% block content %}
+<table class="table tablatablero">
+    <tbody>
+        {% for tablero in object_list %}
+    <tr>
+        <td>{{tablero.nombre}}</td>
+        <td><a href="{% url 'update_tablero' tablero.id %}">
+        EDITAR TABLERO
+        </a>
+        </td>
+        <td><a href="{% url 'eliminar_tablero' tablero.id %}">
+                ELIMINAR TABLERO
+            </a> 
+        </td>
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
+
+{% endblock content %}

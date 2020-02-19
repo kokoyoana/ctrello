@@ -3,20 +3,8 @@
 {% block content %}
 
 
-<div class="row">
-    <div class"col-xs-12 col-md-12 col-lg-12">
-        <h1>Tableros</h1>
-        <form method="POST"> 
-            {% csrf_token %}  {% bootstrap_form formTablero %}
-            
-            <input type="submit" class="btn btn-primary"value="Enviar">
-            
-        </form>
-
-    </div>
-
 </div>
-{% for Tablero in object_list %}
+<!--{{info.listas.all}}-->
 
     <table class="table tablatablero">
         <tbody>
@@ -35,6 +23,5 @@
         {% endfor %}
     </tbody>
     </table>
-
 
 {% endblock content %}
