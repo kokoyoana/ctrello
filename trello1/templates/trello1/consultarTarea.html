@@ -3,18 +3,25 @@
 {% block content %}
 
     <table class="table">
-        <tbody>  
+        <tbody> 
+            <tr>
+                <th>Nombre Tarea</th>
+                <th>Descripcion</th>
+                <th>Lista a que pertenece</th>
+                
+            </tr>
         {% for tarea in object_list %}
         <tr>
+    
             <td>{{tarea.nombreTare}}</td>
-            <td>{{tarea.description}}</td>
-            <td>{{fkLista}}</td>
+            <td>{{tarea.descripcion}}</td>
+            <td>{{tarea.fkLista}}</td>
             <td><a href="{% url 'update_tarea' tarea.id %}">
-                EDITAR TAREA
+                Editar
             </a>
             </td>
             <td><a href="{% url 'eliminar_tarea' tarea.id %}">
-                    ELIMINAR TAREA
+                    Eliminar
                 </a>
             </td>
         </tr>

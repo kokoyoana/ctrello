@@ -4,17 +4,21 @@
 
     <table class="table">
         <tbody> 
+            <tr>
+                <th>Nombre Lista</th>
+                <th>Tablero a que pertenece</th>
+            </tr>
         {% for lista in object_list %}
         <tr>
             <td>{{lista.nombreLista}}</td>
-            <td>{{fkTablero}}</td>
+            <td>{{lista.fkTablero}}</td>
            <td> <a href="{% url 'update_lista' lista.id %}">
-                EDITAR LISTA
+                Editar
             </a>
            </td>
            <td>
                <a href="{% url 'eliminar_lista' lista.id %}">
-                ELIMINAR LISTA
+                Eliminar
             </a>
            </td>
         </tr>

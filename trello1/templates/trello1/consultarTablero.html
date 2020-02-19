@@ -8,15 +8,19 @@
 
     <table class="table ">
         <tbody>
+            <tr>
+                <th>Nombre Tablero</th>
+            </tr>
             {% for tablero in object_list %}
+        
         <tr>
             <td>{{tablero.nombre}}</td>
             <td><a href="{% url 'update_tablero' tablero.id %}">
-            EDITAR TABLERO
+            Editar
             </a>
             </td>
             <td><a href="{% url 'eliminar_tablero' tablero.id %}">
-                    ELIMINAR TABLERO
+                    Eliminar
                 </a> 
             </td>
         </tr>

@@ -115,3 +115,10 @@ def eliminar_lista(request,id):
         idLista.delete()
         return redirect('consultarLista.html')
     return render (request,template,{'cli':idLista})
+
+def consultargeneral(request):
+    template='trello1/consultarTablero.html'
+    listatablero= Tablero.prefetch_related('listas__tareas')
+    contexto={}
+    contexto['object_list']=listatablero
+    return render (request,template,contexto)
