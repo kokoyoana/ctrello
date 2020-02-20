@@ -11,30 +11,41 @@
     <title>Document</title>
 </head>
 <body>
-<section class="container-fluid">
+<section class="container-fluid cabeza">
+    
     <div class="row menuinicio">
+        <h1 class="titulo">Villa Tomillo</h1>
         <div class="col-xs-12 col-md-12 col-lg-12">
-            <ul class="nav nav-tabs">
+            <ul class="nav nav-tabs listamenu">
             <li class="nav-item">
                 <a class="nav-link active" href="{% url 'index' %}">Inicio</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Crear</a>
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Tablero</a>
                 <div class="dropdown-menu">
-                <a class="dropdown-item" href="{% url 'consultarTablero' %}">Tablero</a>
-                <a class="dropdown-item" href="{% url 'consultarLista' %}">Lista</a>
-                <a class="dropdown-item" href="{% url 'consultarTarea' %}">Tarea</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Más Info</a>
+                <a class="dropdown-item" href="{% url 'consultarTablero' %}">Consultar Tablero</a>
+                <a class="dropdown-item" href="{% url 'formtablero' %}">Crear Tablero</a>
                 </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Lista</a>
+                <div class="dropdown-menu">
+                <a class="dropdown-item" href="{% url 'consultarLista' %}">Consutalr Lista</a>
+                <a class="dropdown-item" href="{% url 'formlista' %}">Crear Lista</a>
+                </div>
             </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Tareas</a>
+                <div class="dropdown-menu">
+                <a class="dropdown-item" href="{% url 'consultarTarea' %}">Consultar Tarea</a>
+                <a class="dropdown-item" href="{% url 'formtarea' %}">Crear Tarea</a>
+                </div>
+            </li>
+            
             </ul>
         </div>
     </div>
-  
+
     
     
 {% block content %}

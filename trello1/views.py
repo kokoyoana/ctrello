@@ -16,23 +16,26 @@ class TareaForm(ModelForm):
     class Meta:
         model= Tarea
         fields= ['nombreTare','descripcion','fkLista']
-
+        
 def index(request):
-    principal = "trello1/index.html"
+    return render(request,'trello1/index.html', {})
+
+def formtablero(request):
+    principal = "trello1/crearTablero.html"
     formTablero = TableroForm(request.POST or None)
     if formTablero.is_valid():
         formTablero.save()
     return render(request,principal, {'formTablero':formTablero})
 
 def formlista(request):
-    principal = "trello1/fl.html"
+    principal = "trello1/crearLista.html"
     formLista = ListaForm(request.POST or None)
     if formLista.is_valid():
         formLista.save()
     return render(request,principal, {'formLista':formLista})
 
 def formtarea(request):
-    principal = "trello1/ft.html"
+    principal = "trello1/crearTarea.html"
     formTarea = TareaForm(request.POST or None)
     if formTarea.is_valid():
         formTarea.save()
@@ -48,44 +51,44 @@ def consultarTarea(request):
 
 def consultarTablero(request):
     template='trello1/consultarTablero.html'
-    listatablero= Tablero.objects.all()
+    listatablero= Tablero.objects.all()   #prefetch_related('listas__tareas')
     contexto={}
     contexto['object_list']=listatablero
     return render (request,template,contexto)
 
 def consultarLista(request):
     template='trello1/consultarLista.html'
-    listas= Lista.objects.all()
+    listas= Lista.objects.all()  #prefetch_related('tareas')
     contexto={}
     contexto['object_list']=listas
     return render (request,template,contexto)
 
 def update_tablero(request,id):
-    template= 'trello1/index.html'
+    template= 'trello1/editarTablero.html'
     info_tablero=get_object_or_404(Tablero,pk=id)
     form = TableroForm(request.POST or None,instance=info_tablero)
     if form.is_valid():
         form.save()
-        return redirect('consultarTablero.html')
+        return redirect('consultarTablero')
     return render (request,template,{'form':form})
 
 def update_tarea(request,id):
-    template= 'trello1/consultarTarea.html'
+    template= 'trello1/editarTarea.html'
     info_tarea=get_object_or_404(Tarea,pk=id)
     form = TareaForm(request.POST or None,instance=info_tarea)
     if form.is_valid():
         form.save()
-        return redirect('consultarTarea.html')
+        return redirect('consultarTarea')
     return render (request,template,{'form':form})
     
     
 def update_lista(request,id):
-    template= 'trello1/consultarLista.html'
+    template= 'trello1/editarLista.html'
     info_lista=get_object_or_404(Lista,pk=id)
     form = ListaForm(request.POST or None,instance=info_lista)
     if form.is_valid():
         form.save()
-        return redirect('consultarLista.html')
+        return redirect('consultarLista')
     return render (request,template,{'form':form})
 
 
@@ -112,3 +115,10 @@ def eliminar_lista(request,id):
         idLista.delete()
         return redirect('consultarLista.html')
     return render (request,template,{'cli':idLista})
+
+def consultargeneral(request):
+    template='trello1/consultarTablero.html'
+    listatablero= Tablero.prefetch_related('listas__tareas')
+    contexto={}
+    contexto['object_list']=listatablero
+    return render (request,template,contexto)

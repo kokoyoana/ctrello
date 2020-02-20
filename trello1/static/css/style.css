@@ -5,12 +5,27 @@
 }
 
 .menuinicio{
-    margin-top: 50px;
+    margin-top: 60px;
 
+}
+.titulo{
+    float: left;
+    margin-left: 15em;
+    padding: 15px;
+    border:  2px solid black;
+    
 }
 
 .agregar{
     text-align: center;
     margin-top: 50px;
-   
 }
+.listamenu li{
+    margin-top: 20px;
+    margin-left: 12em;
+    text-align: center;
+    font-size: large;
+}
+
+/* cajas*/
+
