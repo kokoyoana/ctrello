@@ -2,31 +2,27 @@
 {% load bootstrap4 %}
 {% block content %}
 
-
-<div class="row">
-    <div class"col-xs-12 col-md-12 col-lg-12">
-        <h1>Tableros</h1>
-        <form method="POST"> 
-            {% csrf_token %}  {% bootstrap_form formTablero%}
-            
-            <input type="submit" class="btn btn-primary"value="Enviar">
-            
-        </form>
-
-    </div>
-
-</div>
-<table class="table tablatablero">
+<table class="table tablatablero rounded">
     <tbody>
+        <tr>
+            <th>Nombre</th>
+            <th>Informacion</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
+        </tr>
         {% for tablero in object_list %}
             <tr>
                 <td>{{tablero.nombre}}</td>
+                <td><a href="{% url 'consultargeneral' tablero.id %}">
+                Consultar Tablero
+                </a>
+                </td>
                 <td><a href="{% url 'update_tablero' tablero.id %}">
-                EDITAR TABLERO
+                Editar
                 </a>
                 </td>
                 <td><a href="{% url 'eliminar_tablero' tablero.id %}">
-                        ELIMINAR TABLERO
+                        Eliminar
                     </a> 
                 </td>
             </tr>

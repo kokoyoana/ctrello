@@ -15,4 +15,7 @@ urlpatterns = [
     path('eliminarTablero/<int:id>',views.eliminar_tablero,name='eliminar_tablero' ),
     path('eliminarTarea/<int:id>',views.eliminar_tarea,name='eliminar_tarea' ),
     path('eliminarLista/<int:id>',views.eliminar_lista,name='eliminar_lista' ),
+    path('tableros/<int:id>', views.consultargeneral, name='consultargeneral' )
+    
+    
 ]

@@ -1,8 +1,4 @@
-.tablatablero {
-    width: 500px;
-    text-align: center;
-    margin-left: 10em;
-}
+
 
 .menuinicio{
     margin-top: 60px;
@@ -22,10 +18,26 @@
 }
 .listamenu li{
     margin-top: 20px;
-    margin-left: 12em;
+    margin-left: 3em;
     text-align: center;
     font-size: large;
 }
 
 /* cajas*/
 
+.cajas{
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
+
+.bloque{
+    width: 400px;
+    margin-left: 22em;
+    border: 4px solid black;
+    border-radius: 25px;
+    background-color: lightblue;
+}
+
+.atras{
+    margin: 10px;
+}

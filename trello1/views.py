@@ -51,14 +51,20 @@ def consultarTarea(request):
 
 def consultarTablero(request):
     template='trello1/consultarTablero.html'
-    listatablero= Tablero.objects.all()   #prefetch_related('listas__tareas')
+    listatablero= Tablero.objects.all()  
     contexto={}
     contexto['object_list']=listatablero
     return render (request,template,contexto)
 
+def consultargeneral(request,id):
+    template='trello1/tablerogeneral.html'
+    tableros = Tablero.objects.prefetch_related('listas__tareas')
+    tablero = get_object_or_404(tableros,pk=id)
+    return render (request,template,{'tablero':tablero})
+
 def consultarLista(request):
     template='trello1/consultarLista.html'
-    listas= Lista.objects.all()  #prefetch_related('tareas')
+    listas= Lista.objects.all()  
     contexto={}
     contexto['object_list']=listas
     return render (request,template,contexto)
@@ -116,9 +122,5 @@ def eliminar_lista(request,id):
         return redirect('consultarLista.html')
     return render (request,template,{'cli':idLista})
 
-def consultargeneral(request):
-    template='trello1/consultarTablero.html'
-    listatablero= Tablero.prefetch_related('listas__tareas')
-    contexto={}
-    contexto['object_list']=listatablero
-    return render (request,template,contexto)
+
+

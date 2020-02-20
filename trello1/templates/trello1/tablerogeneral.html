@@ -1,0 +1,24 @@
+{% extends "trello1/index.html" %}
+{% load static %}
+{% block content %}
+<div class="cajas">
+    <h1 class="Titulotablero">Tablero:<br> {{tablero.nombre}}</h1>
+    <section class="container cajainfo">
+    {% for lista in tablero.listas.all%}
+        <div class="bloque">
+            <div>
+            <h2>Lista: <br>{{lista.nombreLista}}</h2>
+            </div>
+            <h4>Tareas:</h4>
+            {% for tareas in lista.tareas.all %}
+                <div>
+                {{tareas.nombreTare}}
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor%}
+    </section>
+    <a class="btn btn-primary atras" role="button" href="{% url 'consultarTablero' %}">Atras</a>
+</div>
+
+{% endblock %}  

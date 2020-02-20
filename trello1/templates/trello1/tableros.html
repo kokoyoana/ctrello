@@ -1,0 +1,16 @@
+{% extends "trello1/index.html" %}
+{% load static %}
+  
+<div class="cajas">
+    <nav class="navbar app">{{formTablero}}</nav>
+
+    {% for lista in listas.all%}
+        <div class="blqoues">
+            <nav>{{listas.nombreLista}}</nav>
+            {% for tareas in listatarea.all %}
+                <nav>{{listatarea.nombreTare}}</nav>
+            {% endfor %}
+        </div>
+    {% endfor%}
+</div>
+
